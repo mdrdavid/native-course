@@ -14,9 +14,12 @@ export default function App(enteredGoalText) {
     ]);
   }
 
+  function deleteItemHandler() {
+    console.log("DELETED");
+  }
   return (
     <View style={styles.appContainer}>
-      <GoalInput onAddGoal={addGoalHandler} />
+      <GoalInput onAddGoal={addGoalHandler} onDeleteItem={deleteItemHandler} />
       {/* <View style={styles.inputContainer}>
         <TextInput
           placeholder="Your course goal!"
