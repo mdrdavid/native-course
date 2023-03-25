@@ -1,17 +1,27 @@
 import { useState } from "react";
-import { StyleSheet, View, FlatList } from "react-native";
+import { StyleSheet, View, FlatList, Button } from "react-native";
 
 import GoalInput from "./components/GoalInput";
 import GoalItem from "./components/GoalItem";
 
 export default function App(enteredGoalText) {
   const [courseGoals, setCourseGoals] = useState([]);
+  const [modelIsVisible, setModelIsVisible] = useState(false);
+
+  function startAddGoalHandler() {
+    setModelIsVisible(true);
+  }
+
+  function endAddGoalHandler() {
+    setModelIsVisible(false);
+  }
 
   function addGoalHandler(enteredGoalText) {
     setCourseGoals((currentCourseGoal) => [
       ...currentCourseGoal,
       { text: enteredGoalText, id: Math.random().toString() }, // add unique keys to the items
     ]);
+    endAddGoalHandler();
   }
 
   function deleteItemHandler(id) {
@@ -21,7 +31,12 @@ export default function App(enteredGoalText) {
   }
   return (
     <View style={styles.appContainer}>
-      <GoalInput onAddGoal={addGoalHandler} />
+      <Button title="Add Goal" color="#210064" onPress={startAddGoalHandler} />
+      <GoalInput
+        onAddGoal={addGoalHandler}
+        showModel={modelIsVisible}
+        onCancel={endAddGoalHandler}
+      />
       {/* <View style={styles.inputContainer}>
         <TextInput
           placeholder="Your course goal!"
