@@ -9,11 +9,11 @@ export default function App(enteredGoalText) {
   const [courseGoals, setCourseGoals] = useState([]);
   const [modelIsVisible, setModelIsVisible] = useState(false);
 
-  function startAddGoalHandler() {
+  function startAddGoalHandler() { // show model
     setModelIsVisible(true);
   }
 
-  function endAddGoalHandler() {
+  function endAddGoalHandler() { // close model
     setModelIsVisible(false);
   }
 
