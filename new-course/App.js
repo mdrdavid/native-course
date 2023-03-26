@@ -29,6 +29,7 @@ export default function App(enteredGoalText) {
     setCourseGoals((currentCourseGoal) => {
       return currentCourseGoal.filter((goal) => goal.id !== id); // keep items where there is no match
     });
+    console.log('delete')
   }
   return (
     <>

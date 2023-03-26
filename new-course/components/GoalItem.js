@@ -1,15 +1,15 @@
-import { StyleSheet, View, Text, Pressable } from "react-native";
+import { StyleSheet, View, Text, TouchableOpacity } from "react-native";
 
 function GoalItem({ text, onDeleteItem }) {
   return (
     <View style={styles.goalItem}>
-      <Pressable
+      <TouchableOpacity
         onPress={onDeleteItem.bind(this.id)}
         android_ripple={{ color: "#210064" }}
         style={({ pressed }) => pressed && styles.pressedItem} // for ios ripple
       >
         <Text style={styles.goalText}>{text}</Text>
-      </Pressable>
+      </TouchableOpacity>
     </View>
   );
 }
